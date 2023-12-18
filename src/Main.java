@@ -45,12 +45,12 @@ public class Main {
         }
 
         System.out.println("\ntask 9:");
-        int income1 = 29000;
-        float savings1 = 0;
+        int attachment = 29000;
+        float savingsResult = 0;
         for (int i = 1; i <= 12; i++) {
-            savings1 *= 1.01f;
-            savings1 += income1;
-            System.out.printf("Месяц %d, сумма накоплений равна %.2f рублей\n", i, savings1);
+            savingsResult *= 1.01f;
+            savingsResult += attachment;
+            System.out.printf("Месяц %d, сумма накоплений равна %.2f рублей\n", i, savingsResult);
         }
 
         System.out.println("\ntask 10:");
