@@ -6,13 +6,15 @@ public class Main {
 
         System.out.println("\ntask 1: ");
 
+        NumberFormat numberFormat = NumberFormat.getCurrencyInstance();
+
         float savings = 0;
         int deferred = 15_000;
         int monthNumber = 0;
         while (savings <= 2_459_000) {
             savings *= 1.01f;
             savings += deferred;
-            System.out.printf("Месяц %d, сумма накоплений равна %.2f рублей%n", ++monthNumber, savings);
+            System.out.printf("Месяц %d, сумма накоплений равна %s%n", ++monthNumber, numberFormat.format(savings));
         }
 
 
@@ -45,7 +47,6 @@ public class Main {
 
         savings = 15_000;
         monthNumber = 0;
-        NumberFormat numberFormat = NumberFormat.getCurrencyInstance();
         while (savings <= 12_000_000) {
             savings *= 1.07f;
             savings += deferred;
@@ -62,7 +63,7 @@ public class Main {
             savings += deferred;
             monthNumber++;
             if (monthNumber % 6 == 0) {
-                System.out.printf("Месяц %d, сумма накоплений равна %.2f рублей%n", monthNumber, savings);
+                System.out.printf("Месяц %d, сумма накоплений равна %s%n", monthNumber, numberFormat.format(savings));
             }
         }
 
@@ -74,7 +75,7 @@ public class Main {
             savings *= 1.07f;
             savings += deferred;
             if (monthNumber % 6 == 0) {
-                System.out.printf("Месяц %d, сумма накоплений равна %.2f рублей%n", monthNumber, savings);
+                System.out.printf("Месяц %d, сумма накоплений равна %s%n", monthNumber, numberFormat.format(savings));
             }
         }
 
