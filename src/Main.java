@@ -1,3 +1,4 @@
+import java.text.NumberFormat;
 import java.time.LocalDateTime;
 
 public class Main {
@@ -30,9 +31,11 @@ public class Main {
         System.out.println("\ntask 3: ");
 
         int population = 12_000_000;
-        int birthRate = population / 1000 * 17;
-        int deathRate = population / 1000 * 8;
+        int birthRate;
+        int deathRate;
         for (int j = 1; j <= 10; j++) {
+            birthRate = population / 1000 * 17;
+            deathRate = population / 1000 * 8;
             population = population + birthRate - deathRate;
             System.out.printf("За %d год, численность населения составляет %d человек. %n", j, population);
         }
@@ -42,10 +45,11 @@ public class Main {
 
         savings = 15_000;
         monthNumber = 0;
+        NumberFormat numberFormat = NumberFormat.getCurrencyInstance();
         while (savings <= 12_000_000) {
             savings *= 1.07f;
             savings += deferred;
-            System.out.printf("Месяц %d, сумма накоплений равна %.2f рублей%n", ++monthNumber, savings);
+            System.out.printf("Месяц %d, сумма накоплений равна %s%n", ++monthNumber, numberFormat.format(savings));
         }
 
 
@@ -87,9 +91,12 @@ public class Main {
 
         System.out.println("\ntask 8: ");
 
+        int period = 79;
         int currentYear = LocalDateTime.now().getYear();
-        for (int cometYear = 0; cometYear <= currentYear + 79; cometYear += 79) {
-            if (cometYear > currentYear - 200) System.out.println(cometYear);
+        int startYear = currentYear - 200;
+        int nextYear = currentYear + 100;
+        for (int cometYear = 0; cometYear <= nextYear; cometYear += period) {
+            if (cometYear > startYear) System.out.println(cometYear);
         }
     }
 }
